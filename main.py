@@ -1,8 +1,7 @@
-import math
-import random
 from datetime import datetime
 
 import flet as ft
+from pi_core import run_batch
 
 # Monte Carlo π 可視化アプリ (Flet)
 # 単位正方形 [-1,1]x[-1,1] に乱数で点を打ち、円内ヒット率から π を推定。
@@ -97,12 +96,9 @@ def main(page: ft.Page) -> None:
         if not running:
             return
 
-        for _ in range(BATCH_SIZE):
-            x = random.uniform(-1.0, 1.0)
-            y = random.uniform(-1.0, 1.0)
-            total += 1
-            if x * x + y * y <= 1.0:
-                hits += 1
+        hit_batch, n_batch = run_batch(BATCH_SIZE)
+        hits += hit_batch
+        total += n_batch
 
         est = 4 * hits / total
         # グラフ更新：最新の total を x として推定値を plot

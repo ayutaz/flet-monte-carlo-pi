@@ -7,3 +7,21 @@ requires-python = ">=3.12,<3.13"
 dependencies = [
     "flet==0.28.3",
 ]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3.0",
+    "ruff>=0.7.0",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+extend-exclude = [".venv", ".uvcache"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["E501"]  # 折れ線チャートのデータ列などで多少長くなるのを許容
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
