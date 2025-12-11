@@ -46,12 +46,11 @@ jobs:
         run: UV_CACHE_DIR=.uvcache uv sync --extra dev
 
       - name: Build Flet web (hash routing, base-url)
-        env:
-          FLUTTER_HOME: ${{ env.FLUTTER_HOME }}
         run: |
-          echo "Using Flutter from: ${FLUTTER_HOME}"
+          echo "Flutter root: ${FLUTTER_ROOT}"
+          export PATH="${FLUTTER_ROOT}/bin:${PATH}"
+          flutter --version
           UV_CACHE_DIR=.uvcache uv run flet build web \
-            --flutter-sdk "${FLUTTER_HOME}" \
             --route-url-strategy hash \
             --base-url /flet-monte-carlo-pi \
             --skip-flutter-doctor \
