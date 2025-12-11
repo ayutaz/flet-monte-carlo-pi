@@ -1,6 +1,7 @@
 from datetime import datetime
 
 import flet as ft
+
 from pi_core import run_batch
 
 # Monte Carlo π 可視化アプリ (Flet)

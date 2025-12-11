@@ -24,3 +24,9 @@ Monte Carlo π 可視化 (Flet)
 - Start / Stop で打点を開始・停止、Reset で初期化。
 - グラフは推定値の履歴を表示（最大800点を保持）。
 - Webモードのままにすれば Qiita 読者がブラウザで体験できます。
+
+GitHub Pages デプロイ
+---------------------
+- GitHub Actions が `main` への push で `flet build web` を実行し、Pages に配信します（`.github/workflows/pages.yml`）。
+- リポジトリの Pages 設定で「GitHub Actions」を選択してください。
+- 公開URL例: `https://ayutaz.github.io/flet-monte-carlo-pi/`（base-url は `/flet-monte-carlo-pi` でビルド済み）。
