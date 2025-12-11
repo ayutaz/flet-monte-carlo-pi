@@ -50,6 +50,8 @@ jobs:
           echo "Flutter root: ${FLUTTER_ROOT}"
           export PATH="${FLUTTER_ROOT}/bin:${PATH}"
           flutter --version
+          export PIP_INDEX_URL="https://pypi.org/simple"
+          export PIP_EXTRA_INDEX_URL="https://pypi.flet.dev/simple"
           UV_CACHE_DIR=.uvcache uv run flet build web \
             --route-url-strategy hash \
             --base-url /flet-monte-carlo-pi \
