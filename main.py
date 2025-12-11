@@ -6,7 +6,6 @@ import flet as ft
 
 # Monte Carlo π 可視化アプリ (Flet)
 # 単位正方形 [-1,1]x[-1,1] に乱数で点を打ち、円内ヒット率から π を推定。
-# Zabbix 連携はこの推定値を zabbix_sender などで送れば再利用できる。
 
 
 BATCH_SIZE = 500        # 1ティックあたりの打点数
@@ -133,12 +132,7 @@ def main(page: ft.Page) -> None:
         ft.Row([start_btn, reset_btn], spacing=10),
         chart,
         timer,
-        ft.Text(
-            "Hint: Webモードに切り替えるには `flet run --web main.py`。"
-            " サーバーに送りたいときは zabbix_sender で est を送信してください。",
-            size=13,
-            color=ft.colors.GREY,
-        ),
+        ft.Text("Hint: Webモードに切り替えるには `flet run --web main.py`。", size=13, color=ft.colors.GREY),
     )
 
 

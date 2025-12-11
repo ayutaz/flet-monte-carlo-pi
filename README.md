@@ -24,7 +24,3 @@ Monte Carlo π 可視化 (Flet)
 - Start / Stop で打点を開始・停止、Reset で初期化。
 - グラフは推定値の履歴を表示（最大800点を保持）。
 - Webモードのままにすれば Qiita 読者がブラウザで体験できます。
-
-Zabbix 連携メモ
----------------
-- `on_tick` 内で得た推定値 `est` を `subprocess.run(["zabbix_sender", "-z", "<server>", "-s", "<host>", "-k", "mo_pi_gui", "-o", str(est)])` のように送れば、既存のアイテムやトリガーに流用可能です。
