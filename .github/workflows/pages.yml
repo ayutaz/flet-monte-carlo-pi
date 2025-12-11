@@ -41,31 +41,9 @@ jobs:
         run: |
           python -m pip install build
           mkdir -p /tmp/watchdog_stub/watchdog/observers
-          cat > /tmp/watchdog_stub/watchdog/__init__.py <<'PY'
-__all__ = ["observers", "__version__"]
-__version__ = "4.0.0"
-PY
-          cat > /tmp/watchdog_stub/watchdog/observers/__init__.py <<'PY'
-class Observer:
-    def __init__(self, *_, **__): ...
-    def schedule(self, *_, **__): ...
-    def start(self): ...
-    def stop(self): ...
-    def join(self, *_, **__): ...
-PY
-          cat > /tmp/watchdog_stub/pyproject.toml <<'PY'
-[build-system]
-requires = ["setuptools", "wheel"]
-build-backend = "setuptools.build_meta"
-
-[project]
-name = "watchdog"
-version = "4.0.0"
-description = "Stub watchdog for Flet web build (no native code)."
-authors = [{name="stub"}]
-license = {text = "MIT"}
-requires-python = ">=3.8"
-PY
+          printf "__all__ = [\\\"observers\\\", \\\"__version__\\\"]\n__version__ = \\\"4.0.0\\\"\\n" > /tmp/watchdog_stub/watchdog/__init__.py
+          printf "class Observer:\\n    def __init__(self, *_, **__): ...\\n    def schedule(self, *_, **__): ...\\n    def start(self): ...\\n    def stop(self): ...\\n    def join(self, *_, **__): ...\\n" > /tmp/watchdog_stub/watchdog/observers/__init__.py
+          printf "[build-system]\\nrequires = [\\\"setuptools\\\", \\\"wheel\\\"]\\nbuild-backend = \\\"setuptools.build_meta\\\"\\n\\n[project]\\nname = \\\"watchdog\\\"\\nversion = \\\"4.0.0\\\"\\ndescription = \\\"Stub watchdog for Flet web build (no native code).\\\"\\nauthors = [{name=\\\"stub\\\"}]\\nlicense = {text = \\\"MIT\\\"}\\nrequires-python = \\\">=3.8\\\"\\n" > /tmp/watchdog_stub/pyproject.toml
           python -m build /tmp/watchdog_stub -w -o /tmp/watchdog_wheels
 
       - name: Enable web for Flutter
