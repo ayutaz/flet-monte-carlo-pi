@@ -35,7 +35,7 @@ def main(page: ft.Page) -> None:
     series = ft.LineChartData(
         data_points=[],
         stroke_width=2,
-        color=ft.colors.BLUE,
+        color=ft.Colors.BLUE,
         curved=True,
     )
     chart = ft.LineChart(
@@ -46,14 +46,14 @@ def main(page: ft.Page) -> None:
         max_x=1000,
         animate=300,
         expand=True,
-        tooltip_bgcolor=ft.colors.with_opacity(0.9, ft.colors.BLACK),
+        tooltip_bgcolor=ft.Colors.with_opacity(0.9, ft.Colors.BLACK),
         left_axis=ft.ChartAxis(labels_size=40),
         bottom_axis=ft.ChartAxis(labels_size=30),
         horizontal_grid_lines=ft.ChartGridLines(
-            color=ft.colors.with_opacity(0.08, ft.colors.BLACK)
+            color=ft.Colors.with_opacity(0.08, ft.Colors.BLACK)
         ),
         vertical_grid_lines=ft.ChartGridLines(
-            color=ft.colors.with_opacity(0.08, ft.colors.BLACK)
+            color=ft.Colors.with_opacity(0.08, ft.Colors.BLACK)
         ),
     )
 
@@ -73,7 +73,7 @@ def main(page: ft.Page) -> None:
         running = not running
         if running and start_time is None:
             start_time = datetime.now()
-        start_btn.icon = ft.icons.PAUSE if running else ft.icons.PLAY_ARROW
+        start_btn.icon = ft.Icons.PAUSE if running else ft.Icons.PLAY_ARROW
         start_btn.text = "Stop" if running else "Start"
         page.update()
 
@@ -86,7 +86,7 @@ def main(page: ft.Page) -> None:
         start_time = None
         series.data_points = []
         chart.max_x = 1000
-        start_btn.icon = ft.icons.PLAY_ARROW
+        start_btn.icon = ft.Icons.PLAY_ARROW
         start_btn.text = "Start"
         update_labels(None)
         chart.update()
@@ -114,7 +114,7 @@ def main(page: ft.Page) -> None:
     # ボタン
     start_btn = ft.ElevatedButton(
         "Start",
-        icon=ft.icons.PLAY_ARROW,
+        icon=ft.Icons.PLAY_ARROW,
         on_click=toggle_run,
         style=ft.ButtonStyle(shape=ft.RoundedRectangleBorder(radius=6)),
     )
@@ -129,7 +129,7 @@ def main(page: ft.Page) -> None:
         ft.Row([start_btn, reset_btn], spacing=10),
         chart,
         timer,
-        ft.Text("Hint: Webモードに切り替えるには `flet run --web main.py`。", size=13, color=ft.colors.GREY),
+        ft.Text("Hint: Webモードに切り替えるには `flet run --web main.py`。", size=13, color=ft.Colors.GREY),
     )
 
 

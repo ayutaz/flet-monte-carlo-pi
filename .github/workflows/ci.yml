@@ -29,3 +29,6 @@ jobs:
 
       - name: Pytest
         run: UV_CACHE_DIR=.uvcache uv run pytest
+
+      - name: Test Flet app imports
+        run: UV_CACHE_DIR=.uvcache uv run python -c "from main import main; print('Import OK')"
