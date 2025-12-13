@@ -54,6 +54,9 @@ jobs:
       - name: Sync deps (include dev)
         run: UV_CACHE_DIR=.uvcache uv sync --extra dev
 
+      - name: Clean build directory
+        run: rm -rf build
+
       - name: Build Flet web (hash routing, base-url)
         run: |
           echo "Flutter root: ${FLUTTER_ROOT}"

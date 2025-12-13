@@ -1,6 +1,10 @@
 Monte Carlo π 可視化 (Flet)
 ============================
 
+デモ
+----
+https://ayutaz.github.io/flet-monte-carlo-pi/
+
 概要
 ----
 - Flet を使ったモンテカルロ法の円周率近似デモ。乱数打点を高速で回し、推定値の推移をリアルタイム表示します。
@@ -8,9 +12,9 @@ Monte Carlo π 可視化 (Flet)
 
 セットアップ
 ------------
-1. プロジェクト直下で依存を同期（初回のみ）  
+1. プロジェクト直下で依存を同期（初回のみ）
    `UV_CACHE_DIR=.uvcache uv sync`
-2. 仮想環境に入る場合（任意）  
+2. 仮想環境に入る場合（任意）
    `source .venv/bin/activate`
 
 実行
