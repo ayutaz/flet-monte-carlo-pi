@@ -448,11 +448,11 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "flet" },
-    { name = "flet-cli" },
 ]
 
 [package.optional-dependencies]
 dev = [
+    { name = "flet-cli" },
     { name = "pytest" },
     { name = "ruff" },
 ]
@@ -460,7 +460,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "flet", specifier = "==0.28.3" },
-    { name = "flet-cli", specifier = "==0.28.3" },
+    { name = "flet-cli", marker = "extra == 'dev'", specifier = "==0.28.3" },
     { name = "pytest", marker = "extra == 'dev'", specifier = ">=8.3.0" },
     { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.7.0" },
 ]
