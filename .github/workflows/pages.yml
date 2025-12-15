@@ -35,6 +35,9 @@ jobs:
       - name: Sync deps (include dev)
         run: UV_CACHE_DIR=.uvcache uv sync --extra dev
 
+      - name: Install pip in venv (required for flet publish)
+        run: UV_CACHE_DIR=.uvcache uv pip install pip
+
       - name: Build Flet web with publish
         run: |
           UV_CACHE_DIR=.uvcache uv run flet publish main.py \
