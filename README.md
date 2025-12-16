@@ -1,9 +1,21 @@
 Monte Carlo π 可視化 (Flet)
 ============================
 
-デモ
-----
-https://ayutaz.github.io/flet-monte-carlo-pi/
+⚠️ 現在の状況
+--------------
+**GitHub Pages デプロイは動作していません。**
+
+Flet 0.28.x の Web デプロイメントに既知のバグがあり、以下のエラーが発生します：
+```
+TypeError: flet_js.send is not a function
+```
+
+関連 GitHub Issues:
+- [#5250](https://github.com/flet-dev/flet/issues/5250)
+- [#5321](https://github.com/flet-dev/flet/issues/5321)
+- [#3783](https://github.com/flet-dev/flet/issues/3783)
+
+これは Flet フレームワーク自体のバグであり、Flet 開発チームによる修正待ちの状態です。
 
 概要
 ----
